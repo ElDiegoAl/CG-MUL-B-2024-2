@@ -19,24 +19,20 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Cargar textura para el cubo
-        const textureLoader = new THREE.TextureLoader();
-        const texture = textureLoader.load('ruta/de/tu/imagen.jpg'); // Cambia la ruta de la imagen aquí
-
         // Materiales y geometrías
         const geometryCube = new THREE.BoxGeometry();
-        const materialCube = new THREE.MeshBasicMaterial({ map: texture }); // Aplica la textura al cubo
+        const materialCube = new THREE.MeshBasicMaterial({ color: 0xff0000 }); // Color rojo para el cubo
         const cube = new THREE.Mesh(geometryCube, materialCube);
         scene.add(cube);
 
         const geometrySphere = new THREE.SphereGeometry(1, 32, 32);
-        const materialSphere = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // Verde
+        const materialSphere = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // Verde para la esfera
         const sphere = new THREE.Mesh(geometrySphere, materialSphere);
         sphere.position.x = 3;
         scene.add(sphere);
 
         const geometryCone = new THREE.ConeGeometry(1, 2, 32);
-        const materialCone = new THREE.MeshBasicMaterial({ color: 0x0000ff }); // Azul
+        const materialCone = new THREE.MeshBasicMaterial({ color: 0x0000ff }); // Azul para el cono
         const cone = new THREE.Mesh(geometryCone, materialCone);
         cone.position.x = -3;
         scene.add(cone);
