@@ -11,13 +11,16 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Geometría y material para el cubo
+// Geometría del cubo
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshStandardMaterial({ color: 0x0077ff });
-const cube = new THREE.Mesh(geometry, material);
+
+// Wireframe para el cubo
+const wireframe = new THREE.WireframeGeometry(geometry);
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0x0077ff });
+const cube = new THREE.LineSegments(wireframe, lineMaterial);
 scene.add(cube);
 
-// Luz para iluminar el cubo
+// Luz (opcional, no afecta al wireframe pero puede ser útil para futuras adiciones)
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
